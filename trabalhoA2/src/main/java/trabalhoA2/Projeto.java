@@ -1,21 +1,24 @@
 package trabalhoA2;
 
-import java.util.Date;
+import java.util.*;
 
 import jakarta.persistence.*;
 
 @Entity
-public class Projeto extends Responsavel{
+public class Projeto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_projeto;
 	private String nome_projeto;
 	private Date data_inicio;
-	private Responsavel responsavel;
+	
 	
 	@ManyToOne
 	@JoinColumn(name = "id_responsavel")
+	private Responsavel responsavel;
+	
+
 	public Responsavel getResponsavel() {
 		return responsavel;
 	}
